@@ -11,14 +11,14 @@ Window::Window(short width, short height):
     mConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     mConsoleIn = GetStdHandle(STD_INPUT_HANDLE);
 
-    if (!SetConsoleScreenBufferSize(mConsole, windowBuffSize))
-    {
-        std::cout << "SetConsoleScreenBufferSize failed with error " << GetLastError() << std::endl;
-    }
-
     if (!SetConsoleWindowInfo(mConsole, TRUE, &windowSize))
     {
         std::cout << "SetConsoleWindowInfo failed with error " << GetLastError() << std::endl;
+    }
+    
+    if (!SetConsoleScreenBufferSize(mConsole, windowBuffSize))
+    {
+        std::cout << "SetConsoleScreenBufferSize failed with error " << GetLastError() << std::endl;
     }
     
     CONSOLE_CURSOR_INFO cursorInfo;
@@ -37,7 +37,7 @@ Window::Window(short width, short height):
     {
         for (int h = 0; h < HEIGHT + 1; ++h)
         {
-            setChar(w, h,  0xB0); 
+            setChar(w, h,  0xFA); 
         }
     }
 }
@@ -67,7 +67,7 @@ void Window::clear()
     {
         for (int h = 0; h < HEIGHT + 1; ++h)
         {
-            setChar(w, h,  0xB0); 
+            setChar(w, h,  0xFA); 
         }
     }
 
