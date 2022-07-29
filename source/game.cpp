@@ -137,7 +137,8 @@ bool Game::canSpriteRotate(const std::list<std::pair<int, int>>& coords)
     for (const auto& coord : coords)
     {
         if (mField[coord.first][coord.second] == mField.fieldSpriteImg() ||
-            (coord.second <= 0 || coord.second >= mField.getWidth() - 1))
+            (coord.second <= 0 || coord.second >= mField.getWidth() - 1) || 
+            (coord.first >= mField.getHeight() - 1))
         {
             return canRotate = false;
         }
