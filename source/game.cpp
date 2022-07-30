@@ -200,7 +200,7 @@ void Game::drawOnWindow()
     }
 
 }
-// resolve FPS issue  !!!!!!!!!!!!!
+
 void Game::run()
 {
     mWindow.setBorders();
@@ -234,6 +234,7 @@ void Game::run()
                 endGame = true;
                 break;
             }
+            drawOnWindow();
         }
 
         // draw
@@ -252,5 +253,6 @@ void Game::run()
             mSpriteOnBottom = false;
         }
         drawOnWindow();
+        Sleep(1);
     }
 }
